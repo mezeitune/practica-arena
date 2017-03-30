@@ -1,5 +1,6 @@
 package ui.windows;
 
+import org.uqbar.arena.bindings.PropertyAdapter;
 import org.uqbar.arena.layout.ColumnLayout;
 import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Label;
@@ -24,7 +25,7 @@ public class RegistrarVentaWindow extends Dialog<VentaViewModel> {
 		
 		new Label(form).setText("Prendas");
 		Selector<Prenda> selectorPrenda = new Selector<Prenda>(form).allowNull(true);
-		selectorPrenda.bindItemsToProperty("prendas");
+		selectorPrenda.bindItemsToProperty("prendas").setAdapter(new PropertyAdapter(Prenda.class, "nombre"));
 		selectorPrenda.bindValueToProperty("prendaSeleccionada");
 		
 		new Label(form).setText("Prenda Seleccionada");
@@ -43,6 +44,7 @@ public class RegistrarVentaWindow extends Dialog<VentaViewModel> {
 	@Override
 	protected void executeTask() {
 		System.out.println("Me aceptaron, yuppiiii!!!");
+		
 		super.executeTask();
 	}
 

@@ -23,10 +23,13 @@ public class VentaViewModel {
 
 	public void setPrendaSeleccionada(Prenda prendaSeleccionada) {
 		this.prendaSeleccionada = prendaSeleccionada;
+		Repositorios.ventas.agregar(prendaSeleccionada);
+		
 	}
 
 	public List<Prenda> getPrendas() {
 		return prendas;
 	}
+	
 
 }

@@ -27,18 +27,23 @@ public class ListadoVentasWindow extends SimpleWindow<AlgoViewModel> {
 	protected void createFormPanel(Panel formPanel) {
 		this.setTitle("Macowins - Ventas");
 		
-		Table tableVentas = new Table<>(formPanel, Venta.class);
+		Table<Venta> tableVentas = new Table<Venta>(formPanel, Venta.class);
+		
+		
 		Column<Venta> columnaFecha = new Column<Venta>(tableVentas);
 		columnaFecha.setTitle("Fecha");
+		columnaFecha.bindContentsToProperty("fecha");
 		
-		Column<Venta> columnaPrenda = new Column<Venta>(tableVentas);
+		
+		/*Column<Venta> columnaPrenda = new Column<Venta>(tableVentas);
 		columnaPrenda.setTitle("Prenda");
 		
 		Column<Venta> columnaUnidades = new Column<Venta>(tableVentas);
 		columnaUnidades.setTitle("Prenda");
-		
+		*/
 		tableVentas.setHeight(300);
 		tableVentas.setWidth(600);
+		tableVentas.bindItemsToProperty("ventas");
 	}
 
 	public void registrarVenta() {

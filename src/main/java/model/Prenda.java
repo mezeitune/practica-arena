@@ -2,7 +2,7 @@ package model;
 
 import org.uqbar.commons.utils.Observable;
 
-@Observable
+@Observable //por que necesito el getter de esta tambien para que lo bindee , por que VentaViewModel necesita de esto
 public class Prenda {
 	private Estado estado;
 	private String nombre;
